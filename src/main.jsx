@@ -1,10 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-/* Setting routes For our page. In this case, we have only single Parent route i.e. <Home /> */
+/* --> 🎌 Setting routes For our page. In this case, we have only single Parent route i.e. <App /> */
 const router = createBrowserRouter([
   {
     path: "/",

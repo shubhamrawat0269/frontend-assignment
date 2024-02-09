@@ -1,31 +1,12 @@
 import "./App.css";
-import axios from "axios";
-import { useState, useEffect } from "react";
-import Random from "./Random";
+import Random from "./components/Random";
+import { withDataFetch } from "./HOC/withDataFetch";
+import { fetchCatsImages } from "./utils";
 
-function App() {
-  const [data, setData] = useState([]);
-
-  // fetching Cats Images using axios method get
-  const fetchCatsImages = async () => {
-    try {
-      let res = await axios.get(
-        `https://api.thecatapi.com/v1/images/search?limit=100&breed_ids=beng&api_key=live_VTcWRJw4VlzqxNqZyYhHqtvM88ZkZ5QfiefAVfxoTKVZngFGKQ8LZJqpSb4L6ojN`
-      );
-      // console.log(res.data);
-      setData(res.data);
-    } catch (error) {
-      console.log("Error", error);
-      return null;
-    }
-  };
-
-  useEffect(() => {
-    fetchCatsImages();
-  }, []);
+function App({ data }) {
   return (
     <>
-      <Random />
+      <Random role="randomData" />
 
       <h1 style={{ textAlign: "center" }}>Cats List with their Abilities</h1>
       <div className="main__div">
@@ -74,4 +55,5 @@ function App() {
   );
 }
 
-export default App;
+/* Created a higher order function (i.e. withDataFetch,in this case) to extract fetch logic which is repeating several times */
+export default withDataFetch(App, fetchCatsImages);
