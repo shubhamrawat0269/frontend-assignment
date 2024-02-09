@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Protest Strike", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    width: 100vw;
+    height: auto;
+    background-color: #F8F4EC;
+}
+
+.main__div {
+    width: 90%;
+    margin: 1rem auto;
+
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.main__div img {
+    width: 20rem;
+    aspect-ratio: 1;
+}
+
+.cat__info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 0.5rem;
+    color: #0F1035;
+}
+
+.cat__info .number {
+    color: #0D9276;
+}
